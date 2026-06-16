@@ -75,17 +75,84 @@ ekran görüntüsü). Üretimden önce ne göründüğünü doğrula; "tamam" de
 
 ## Çalışma gereklilikleri (skill çalışırken)
 
-- **MCP araçları:** DataForSEO (`mcp__dfs-mcp__*` veya registry) kelime hacmi/KD/SERP/AI Overview/
-  Trends için; Ahrefs çapraz doğrulama için; Playwright/Chrome ekran görüntüsü + canlı gözlem için.
-  Biri yoksa graceful düş: canlı Chrome gözlemi + kullanıcıdan veri iste. Hangi kaynaktan ne
-  aldığını rapora **bir kez** (yöntem notu + footer) yaz, her bölüme tekrar damga **basma**.
-- **Klonlama:** tasarım örneğinin kabuğu için `clone-website` skill'i veya canlı DOM/asset çıkarımı
-  kullanılabilir. Header/nav/footer birebir; gövde özelleştirilir.
-- **Sunum:** Inbound Design System bundle'ını çalışırken indir: `references/04-presentation.md`
-  içindeki URL'den `tar -xzf` ile aç, README'sini oku, slayt şablonlarını kullan.
-- **Görsel doğrulama:** Playwright ekran görüntüleri worktree köküne `./<dosya>.png` kaydeder; PIL
-  (Pillow) ile kırpma/yeniden boyutlama yap. LibreOffice yoksa pptx pixel-render edilemez · HTML
-  deck ile QA et.
+Bu skill canlı veriye, MCP araçlarına ve birkaç yerel araç/kütüphaneye bağlıdır. İlke **ön-uçuş
+(preflight)**: her bağımlılık, kullanım anından hemen önce **DENETLENİR** · varsa kullanılır · yoksa
+edinim moduna göre **OTO-EDİNİLİR** · yine de edinilemiyorsa graceful şekilde düşülür ve eksik olan
+tek mesajda kullanıcıdan istenir. Edinim modu bağımlılığın tipine göre değişir ve birbirine
+karıştırılmaz:
+
+- **MCP araçları:** bağlı sunucunun şeması `ToolSearch` ile **YÜKLENİR** (bu kurulum değil, şema
+  yüklemesidir). Bağlı olmayan sunucu **kurulamaz**; yalnızca registry'de aranır, `authenticate`
+  tetiklenir ve kullanıcıya bağlaması/onaylaması bildirilir.
+- **Python/Node paketleri (Pillow, pptxgenjs):** `pip` / `npm` ile **KURULUR**.
+- **DS bundle / clone-website:** sırasıyla **İNDİRİLİR** / `Skill` aracı ile çağrılır.
+
+Hangi kaynaktan ne alındığı (ör. ToolSearch ile yüklenen MCP şeması, pip ile kurulan Pillow, indirilen
+DS bundle) rapora **bir kez** yazılır: yöntem notu bölümünde ve footer'da.
+
+**Önemli sınır:** bir skill, kimlik bilgisi gerektiren / uzak bir MCP sunucusunu **sessizce kuramaz**.
+Bağlı (installed) bir sunucunun şeması `ToolSearch` ile yüklenir (bu kurulum değil, şema yüklemesidir)
+ve araçlar doğrudan çağrılır; bağlı olmayan sunucu için yalnızca registry'de aranır, `authenticate`
+tetiklenir ve kullanıcıya bağlaması/onaylaması bildirilir.
+
+**MCP araçları · DataForSEO, Ahrefs, Playwright, Chrome**
+
+- **Ne için:** SEO/GEO verisi (DataForSEO: SERP, keyword, on-page · Ahrefs: backlink, organic), sayfa
+  render ve görsel QA (Playwright / Chrome).
+- **Oto-edinme (bağlıysa):** Araçlar çoğu zaman *deferred* gelir (var, şema yüklenmemiş). Kullanmadan
+  önce `ToolSearch` çağrılır: `select:<tam_arac_adi>` veya anahtar kelime sorgusu ile **bağlı
+  sunucunun şeması yüklenir**, sonra araç normal çağrılır. Namespace'ler: DataForSEO için
+  `mcp__dataforseo__*` / `mcp__dfs-mcp__*`, Playwright için `mcp__plugin_playwright_playwright__*`,
+  Chrome için `mcp__Claude_in_Chrome__*` / `mcp__Control_Chrome__*`. Ahrefs'te kimlik doğrulama yüzeyi
+  `mcp__plugin_marketing_ahrefs__authenticate` / `__complete_authentication` namespace'indedir; Ahrefs
+  veri araçları (site-explorer, keywords-explorer vb.) ise bağlı Ahrefs sunucusunun kendi namespace'i
+  altında ToolSearch ile yüklenir.
+- **Bağlı değilse:** ToolSearch sorgusu araç döndürmüyorsa sunucu bağlı değildir.
+  `mcp__mcp-registry__search_mcp_registry` (veya `suggest_connectors` / `list_connectors`) ile aranır;
+  varsa `authenticate` / `complete_authentication` (ör. `mcp__plugin_marketing_ahrefs__authenticate`)
+  tetiklenip OAuth başlatılır ve kullanıcıya **bağlaması/onaylaması** bildirilir. Sunucu sessizce
+  kurulmaz.
+- **Fallback:** DataForSEO/Ahrefs yoksa rapor, kullanıcının sağladığı mevcut SEO dokümanı ve canlı
+  sayfa (Playwright/Chrome) ile yetinen sınırlı kapsamda hazırlanır; eksik veri kaynağı rapora not
+  düşülür. Playwright/Chrome de yoksa görsel QA atlanır ve durum kullanıcıya bildirilir.
+
+**Python + Pillow**
+
+- **Ne için:** ekran görüntüsü kırpma/ölçekleme, görsel kompozisyon, rapor/sunum görsellerinin işlenmesi.
+- **Oto-kurulum (Bash):** `python3 -c "import PIL" 2>/dev/null || python3 -m pip install --quiet --user pillow`.
+  Aynı desen herhangi bir pip bağımlılığı için geçerlidir.
+- **Fallback:** kurulum başarısızsa görsel işleme adımı atlanır, ham ekran görüntüleri kullanılır ve
+  durum not edilir.
+
+**Inbound Design System bundle (yalnızca sunum istenirse)**
+
+- **Ne için:** marka token'ları, fontlar (Bricolage Grotesque · Outfit), logolar, örnek slide ve UI kit'leri.
+- **Oto-indirme (Bash):** `[ -d /tmp/inbound-ds ] || { curl -s -o /tmp/inbound-ds.gz "https://api.anthropic.com/v1/design/h/5vYshIIlcSgmneND7nN7HQ"; mkdir -p /tmp/inbound-ds; tar -xzf /tmp/inbound-ds.gz -C /tmp/inbound-ds; }`.
+  Ardından `README.md` ve `project/SKILL.md` okunur.
+- **Fallback:** indirme başarısızsa marka token'ları kullanıcıdan istenir (renk/logo/font); sunum
+  varsayılan nötr stille üretilir ve sapma not edilir.
+
+**clone-website skill**
+
+- **Ne için:** hedef sayfanın tasarım dilini (token, bileşen, asset) çıkarmak ve tasarım örneğini
+  sadık biçimde yeniden kurmak.
+- **Oto-edinme:** bir Skill'dir, `Skill` aracı ile `clone-website` çağrılır.
+- **Fallback:** skill yoksa canlı **DOM/asset çıkarımına** (Playwright / Chrome) düşülür; token ve
+  bileşenler doğrudan sayfadan toplanır.
+
+**PPTX üretimi · Node + pptxgenjs**
+
+- **Ne için:** sunum çıktısının `.pptx` olarak üretilmesi.
+- **Oto-kurulum (Bash):** `node -e "require('pptxgenjs')" 2>/dev/null || npm install pptxgenjs`.
+- **LibreOffice (opsiyonel):** pptx pixel-render QA için kullanılır; yoksa içerik `markitdown` ile,
+  görünüm eşdeğer HTML deck ile QA edilir.
+- **Fallback:** Node/pptxgenjs edinilemezse sunum HTML deck olarak teslim edilir ve pptx'in
+  üretilemediği kullanıcıya bildirilir.
+
+**Yerel HTTP sunucu**
+
+- **Ne için:** HTML rapor/tasarım/deck çıktılarının yerel önizlemesi ve Playwright QA'i.
+- **Edinme:** `python3 -m http.server` (stdlib, her zaman mevcuttur, kurulum gerekmez).
 
 ## Yazım ve görselleştirme kuralları (rapor + sunum + tasarım metinleri)
 
