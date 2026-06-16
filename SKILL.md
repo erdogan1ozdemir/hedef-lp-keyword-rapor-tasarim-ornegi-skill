@@ -91,7 +91,7 @@ ekran görüntüsü). Üretimden önce ne göründüğünü doğrula; "tamam" de
 
 Bu kurallar mevcut işin damıtılmış halidir; `references/02-html-report.md` içinde örneklerle açılır.
 
-- **Dil:** varsayılan Türkçe, pasif/3. tekil, kurumsal ton. **Em-dash (·) kullanma** (· veya virgül).
+- **Dil:** varsayılan Türkçe, pasif/3. tekil, kurumsal ton. **Em-dash (uzun tire) kullanma**; yerine · veya virgül.
 - **Kesin vaat / abartı yok:** "garanti, en iyi, kesinlikle" yerine "değerlendirilebilir,
   gözlemlenmektedir, fayda sağlayabilir".
 - **Terimler orijinal dilde:** SEO jargonunu Türkçeleştirme. "atıf" yerine **mention**, "makine
