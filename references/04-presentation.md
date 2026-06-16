@@ -1,4 +1,4 @@
-# 04 · Sunum (opsiyonel) — Inbound Design System deck
+# 04 · Sunum (opsiyonel) Â· Inbound Design System deck
 
 Sunum yalnızca kullanıcı isterse üretilir. Raporun tüm bölümlerini yansıtan, **Inbound Design System**
 ile hazırlanmış bir slayt destesidir.
@@ -14,18 +14,18 @@ mkdir -p /tmp/inbound-ds && tar -xzf /tmp/inbound-ds.gz -C /tmp/inbound-ds
 ```
 
 Sonra **README.md ve project/SKILL.md'yi oku** ve ilgili kısımları uygula. Bundle içeriği:
-- `project/colors_and_type.css` — tüm token'lar + `@font-face` (Bricolage Grotesque display, Outfit body).
-- `project/slides/*.html` — 1280×720 örnek slaytlar: cover, agenda, separator, content cards, KPI,
+- `project/colors_and_type.css` Â· tüm token'lar + `@font-face` (Bricolage Grotesque display, Outfit body).
+- `project/slides/*.html` Â· 1280×720 örnek slaytlar: cover, agenda, separator, content cards, KPI,
   quote, table, timeline, closing.
-- `project/deck.html` + `project/deck-stage.js` — slaytları çalışan bir deck'e dizen iskelet.
-- `project/assets/` — logolar (white/coral/teal), büyük-O dekoratif işaret, daireye kırpılabilir foto.
-- `project/ui_kits/website/` — web UI kit (gerekirse).
+- `project/deck.html` + `project/deck-stage.js` Â· slaytları çalışan bir deck'e dizen iskelet.
+- `project/assets/` Â· logolar (white/coral/teal), büyük-O dekoratif işaret, daireye kırpılabilir foto.
+- `project/ui_kits/website/` Â· web UI kit (gerekirse).
 
 ## Tema (non-negotiables)
 - **Fontlar:** Bricolage Grotesque (display) + Outfit (body). Asla Inter/system-ui birincil değil.
 - **Renkler:** coral `#FF7B52` + dark teal `#10332F`, beyaz zemin. Yeni renk uydurma; gerekiyorsa
   data-viz token'larıyla genişlet. (Marka rengi raporu uyarlıyoruz; **sunum Inbound markasının**
-  kendi sistemidir — kullanıcı aksini istemedikçe Inbound coral/teal kalır.)
+  kendi sistemidir Â· kullanıcı aksini istemedikçe Inbound coral/teal kalır.)
 - **Text highlight:** kelimenin arkasında coral blok (`.hl`). Markanın imza tipografik hamlesi.
 - **Accent line:** 60×3.5px coral pill, başlık/alıntı yanında.
 - **Logo:** her içerik slaytında sol-altta; kapakta wordmark alt-ortada; separatörlerde yok.
@@ -52,9 +52,9 @@ Sonra **README.md ve project/SKILL.md'yi oku** ve ilgili kısımları uygula. Bu
   teal, accent line, KPI kartları, tablo, split+ss, badge düzenleri). LibreOffice yoksa pptx
   pixel-render edilemez → içeriği markitdown ile, görünümü eşdeğer HTML deck ile QA et.
 - İçeriği önce yapılandırılmış JSON olarak üret (slayt başına layout/eyebrow/title/bullets/table/
-  kpis/callout/screenshot/note), sonra deck'e bas — böylece çok-ajanlı üretim ve yeniden derleme kolay.
+  kpis/callout/screenshot/note), sonra deck'e bas Â· böylece çok-ajanlı üretim ve yeniden derleme kolay.
 
 ## QA
 HTML deck'i servis edip Playwright ile kapak/KPI/split+ss/badge/kapanış slaytlarını doğrula:
 em-dash 0, kırık görsel 0, tema tutarlı, içerik raporla uyumlu. Font yüklü değilse (pptx) PowerPoint
-ikame eder — kullanıcıya not düş.
+ikame eder Â· kullanıcıya not düş.

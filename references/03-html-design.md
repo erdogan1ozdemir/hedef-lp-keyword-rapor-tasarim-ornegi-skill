@@ -8,7 +8,7 @@ Hedef sayfanın **gerçekçi bir klonu** üzerinde, sayfa içi gövdeyi CRO/CX/U
 
 - **Değişmeyen (birebir klonla):** header, üst navigasyon, alt navigasyon/footer, breadcrumb,
   global renk/tipografi, logo. Kullanıcı aynı sitedeymiş gibi hissetmeli.
-- **Değişen (yeniden tasarla):** sayfa içi gövde — hedef sayfanın tipine göre bileşenler:
+- **Değişen (yeniden tasarla):** sayfa içi gövde Â· hedef sayfanın tipine göre bileşenler:
   - **hub/onboarding:** hero, "nedir" tanım bloğu, değer/karşılaştırma, adımlar, SSS.
   - **hizmet:** hizmet anlatımı, faydalar, fiyat/teklif, sosyal kanıt, CTA.
   - **listeleme/kategori:** filtre + kartlar (mevcut işteki gibi), kart içi detay.
@@ -27,12 +27,12 @@ Tek sayfada, sağ kenarda **yüzen "VARYANT" seçici** ile anlık değişen 4 CR
 `body[data-variant=a|b|c|d]` ile CSS sürülür; varyanta özel öğeler DOM'da hep bulunur, CSS ile gösterilir.
 
 4 varyantı **CRO hipotezi** olarak çeşitlendir (sayfa tipine göre uyarlanır). Mevcut işteki örnek:
-- **A · Zengin** — geniş açıklama, büyük logolar/etiketler, bilgi yoğun. (Kartlarda dönen **conic
-  glow** + gradient ile "premium" his — `@property` ile animasyonlu conic-gradient kenar.)
-- **B · Sade** — küçük logolar, az metin, düz başlık, tek güçlü fiyat/CTA. Hızlı tarama hipotezi.
-- **C · Değer** — tasarruf satırı (üstü çizili eski fiyat + "~%X daha uygun"), değer kartı; değer
+- **A · Zengin** Â· geniş açıklama, büyük logolar/etiketler, bilgi yoğun. (Kartlarda dönen **conic
+  glow** + gradient ile "premium" his Â· `@property` ile animasyonlu conic-gradient kenar.)
+- **B · Sade** Â· küçük logolar, az metin, düz başlık, tek güçlü fiyat/CTA. Hızlı tarama hipotezi.
+- **C · Değer** Â· tasarruf satırı (üstü çizili eski fiyat + "~%X daha uygun"), değer kartı; değer
   çerçevesi hipotezi.
-- **D · Detay** — rakip-tarzı belirgin "Detaylar" butonları, çerçeveli başlık, en detaylı bilgi.
+- **D · Detay** Â· rakip-tarzı belirgin "Detaylar" butonları, çerçeveli başlık, en detaylı bilgi.
 
 Farklı varyantlarda farklı gradient geçişleri, gölge ve glow denemeleri yapılabilir. UI/UX kararları
 için `ui-ux-pro-max` ve `frontend-design` skill'lerinden yararlan.
