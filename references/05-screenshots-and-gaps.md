@@ -2,7 +2,7 @@
 
 Rapor ve tasarım, kanıt niteliğinde **gerçek ekran görüntüleri** içerir. Bir görseli kendin
 alamıyorsan ya da rapor görsel olarak eksik kalıyorsa, **bunu net biçimde listele ve kullanıcıdan
-iste** Â· eksik bırakıp geçme, uydurma görsel koyma.
+iste** · eksik bırakıp geçme, uydurma görsel koyma.
 
 ## Hangi ekran görüntüleri gerekir (tipik)
 - **Hedef sayfa:** masaüstü + mobil tam-sayfa (tasarım klonu + CRO bölümü için).
@@ -20,9 +20,9 @@ Rapora başlarken kullanıcıya **gereken ekran görüntülerinin listesini ve n
   PIL ile işle.
 - **Kırpma/boyutlama (PIL/Pillow):** üst-çapalı kırp (banner/reklam/menü çubuğunu at), makul genişliğe
   (~900-1500px) yeniden boyutla, `optimize=True` ile kaydet. **Asla devasa (10MB+) ham görsel gömme**
-  Â· performansı bozar; kırp + küçült.
+  · performansı bozar; kırp + küçült.
 - **Gereksiz alanları temizle:** özellikle X'te sol menü (Anasayfa/Keşfet/Profil), reklam banner'ları,
-  çerez bildirimleri kırpılır. Kullanıcı paylaşımı/tweet metinleri **kesilmemeli** Â· gerekirse mobil
+  çerez bildirimleri kırpılır. Kullanıcı paylaşımı/tweet metinleri **kesilmemeli** · gerekirse mobil
   yakalamadan (tek sütun, tam metin) kırp.
 - **Bölme:** uzun akışları 2-3 parçaya böl (X 1/2, X 2/2; Ekşi 1/2, Ekşi 2/2) ki daha çok içerik görünsün.
 

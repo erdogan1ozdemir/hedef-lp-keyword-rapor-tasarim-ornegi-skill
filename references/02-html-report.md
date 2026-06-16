@@ -21,35 +21,35 @@ yalnız renkler hedef markanın LP rengine uyarlanır (okunabilirlik korunarak).
 
 Sıra ve içerik mevcut yapıyı izler; gereksiz bölüm atlanabilir, sayfa tipine göre vurgular değişir:
 
-1. **Yönetici Özeti** Â· 3 öne çıkan kart (mevcut durum / en büyük fırsat / öncelikli aksiyon) +
+1. **Yönetici Özeti** · 3 öne çıkan kart (mevcut durum / en büyük fırsat / öncelikli aksiyon) +
    KPI gösterge paneli (organik sıra, content gap kelime sayısı, en yüksek hacimli fırsat + KD,
    AI Overview durumu, vb.) + öne çıkanlar listesi.
-2. **Yöntem & Kapsam** Â· veri kaynakları (DataForSEO + Ahrefs + canlı SERP/AI Overview + Trends),
+2. **Yöntem & Kapsam** · veri kaynakları (DataForSEO + Ahrefs + canlı SERP/AI Overview + Trends),
    rakip seti, şeffaflık notu. **Tarih ve kaynak burada bir kez** geçer.
-3. **Ürün / Sayfa Yapısı** Â· hedef sayfanın/ürünün yapısı (paketler, kademeler, fiyat, kapsam).
-4. **SERP & Görünürlük** Â· doğrulanmış, **tıklanabilir** SERP tablosu (sıra/sonuç/sahip/tip/bağlantı)
+3. **Ürün / Sayfa Yapısı** · hedef sayfanın/ürünün yapısı (paketler, kademeler, fiyat, kapsam).
+4. **SERP & Görünürlük** · doğrulanmış, **tıklanabilir** SERP tablosu (sıra/sonuç/sahip/tip/bağlantı)
    + canlı SERP ekran görüntüleri + PAA + sayfa rol haritası/kanibalizasyon notu.
-5. **AI Overview & GEO** Â· AI Overview bulgusu (kaynak dağılımı, tanım alıntısı, mention durumu) +
+5. **AI Overview & GEO** · AI Overview bulgusu (kaynak dağılımı, tanım alıntısı, mention durumu) +
    **GEO yol haritası** (alıntılanabilir tanım, eksiksiz FAQPage, machine-readable karşılaştırma
    tablosu, değer bloğu, 40-60 kelimelik alıntılanabilir pasaj, robots.txt GPTBot/Google-Extended/
    PerplexityBot + llms.txt, publisher mention, dateModified tazeliği).
-6. **Talep Havuzu & Content Gap** Â· hacim/KD/rakip/fırsat tablosu + "hangi sorgu → hangi rakip URL"
+6. **Talep Havuzu & Content Gap** · hacim/KD/rakip/fırsat tablosu + "hangi sorgu → hangi rakip URL"
    doğrulanmış, tıklanabilir tablo + ilgili ekran görüntüleri.
-7. **Rakip İçerikte Neler Var** Â· karşılaştırma matrisi (marka vs rakipler) + editöryel liderler +
+7. **Rakip İçerikte Neler Var** · karşılaştırma matrisi (marka vs rakipler) + editöryel liderler +
    operatör/sektör rakipleri (ekran görüntüleri **hizalı** bir satırda).
-8. **Google Trends** Â· zaman içinde ilgi + yükselen sorgular/konular (split düzen).
-9. **Sosyal Duygu** Â· ton dağılımı grafiği + **gruplanmış** kartlar (Olumlu / Soru / Geri bildirim) +
-   "İlgili ekran görüntüleri" (X/Ekşi vb. Â· bkz. 05 kaydırmalı karosel) + Şikayetvar sinyali.
-10. **Kullanıcı Soruları & İçerik Eşleşmesi** Â· küme/örnek soru/yanıt yeri/FAQ adayı tablosu.
-11. **CRO / CX / UI-UX** Â· hedef sayfa (birincil) + (varsa) ikincil sayfa gözlemleri; tasarım
+8. **Google Trends** · zaman içinde ilgi + yükselen sorgular/konular (split düzen).
+9. **Sosyal Duygu** · ton dağılımı grafiği + **gruplanmış** kartlar (Olumlu / Soru / Geri bildirim) +
+   "İlgili ekran görüntüleri" (X/Ekşi vb. · bkz. 05 kaydırmalı karosel) + Şikayetvar sinyali.
+10. **Kullanıcı Soruları & İçerik Eşleşmesi** · küme/örnek soru/yanıt yeri/FAQ adayı tablosu.
+11. **CRO / CX / UI-UX** · hedef sayfa (birincil) + (varsa) ikincil sayfa gözlemleri; tasarım
     önerisi + **tasarım örneğinin canlı/önizleme linki** ve 4 varyanttan bahis (bkz. 03).
-12. **Sayfa İçi & CWV** Â· denetim tablosu (öncelik etiketli) + ölçüm seti (onpage skoru, Title/Meta
+12. **Sayfa İçi & CWV** · denetim tablosu (öncelik etiketli) + ölçüm seti (onpage skoru, Title/Meta
     krk, H2 sayısı, script, görsel alt metin, TTI/DOM) + CrUX/PSI teyit notu.
-13. **Aksiyon & İçerik Brief** Â· sekmeler: **Teknik · İçerik & PAA · CRO/CX/UI-UX · Core Web Vitals
+13. **Aksiyon & İçerik Brief** · sekmeler: **Teknik · İçerik & PAA · CRO/CX/UI-UX · Core Web Vitals
     · Örnek İçerik Brief**. Mevcut SEO dokümanı varsa kaynak etiketi: `Doc'ta var` (gri) / `Doc + ek`
     (amber) / `Analiz eki` (coral) ile raporun özgün katkısını ayır; bir lejant + açıklama ekle.
-14. **Geliştirme Alanları** Â· mevcut sayfalara eklenebilir bloklar + fırsat skoru tablosu.
-15. **Terim Sözlüğü & Kaynaklar** Â· `data-term` ile işaretlenen tüm terimlerin kısa tanımı + kaynak
+14. **Geliştirme Alanları** · mevcut sayfalara eklenebilir bloklar + fırsat skoru tablosu.
+15. **Terim Sözlüğü & Kaynaklar** · `data-term` ile işaretlenen tüm terimlerin kısa tanımı + kaynak
     linkleri + footer (tek tarih/kaynak damgası).
 
 ## Marka rengi uyarlama (önemli)
@@ -64,7 +64,7 @@ değiştir; yapıyı bozma:
 - Marka rengi çok açık veya çok doygunsa: rengi yalnız accent/şerit/rozet olarak kullan, geniş
   zeminlerde değil. Gerekirse koyu bir varyantını üret (`--brand-deep`).
 - Inbound wordmark/logosu marka logosuyla değiştirilebilir; değişmezse Inbound imzası kalır (ajans
-  çıktısı olduğu için kabul edilebilir Â· kullanıcıya teyit ettir).
+  çıktısı olduğu için kabul edilebilir · kullanıcıya teyit ettir).
 
 ## Görselleştirme ve okunabilirlik
 - Uzun "okuma" callout'larını kısa madde imlerine indir.

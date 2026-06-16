@@ -9,7 +9,7 @@ description: >-
   Bu skill'i ŞU durumlarda kullan: kullanıcı bir marka sayfası/LP verip "bu sayfa için SEO/GEO
   rapor + tasarım önerisi hazırla", "hedef kelime ile landing page analizi", "şu sayfayı CRO/UX
   varyantlarıyla yeniden tasarla", "marka sayfasını iyileştir, varyant öner", "rakip analizi raporu
-  + tasarım örneği", "bu hub/listeleme/detay sayfası için tasarım varyantı" dediğinde Â· kullanıcı
+  + tasarım örneği", "bu hub/listeleme/detay sayfası için tasarım varyantı" dediğinde · kullanıcı
   "rapor" ya da "tasarım" kelimesini açıkça söylemese bile, bir hedef URL + kelime verip o sayfanın
   SEO görünürlüğünü ve tasarımını birlikte ele almak istiyorsa tetikle. Tetikleyiciler: "hedef sayfa
   raporu", "LP analizi", "landing page tasarım önerisi", "sayfa için varyant tasarla", "CRO tasarım
@@ -25,14 +25,14 @@ listeleme örneğindeki gibi **tasarım varyantlarıyla** geliştirilir.
 
 Üç çıktı vardır. **Rapor ve tasarım örneği her zaman üretilir; sunum yalnızca istenirse.**
 
-1. **HTML rapor** Â· SEO + GEO + rakip + talep havuzu + sosyal duygu + CRO/CX bulguları. Görünüm
+1. **HTML rapor** · SEO + GEO + rakip + talep havuzu + sosyal duygu + CRO/CX bulguları. Görünüm
    olarak mevcut Inbound raporuyla birebir aynı tarzda; sadece renkler hedef markanın LP rengine
    uyarlanır (okunabilirlik korunarak). Bkz. `references/02-html-report.md`.
-2. **HTML tasarım örneği** Â· hedef domainin **header / navigasyon / footer gibi değişmeyecek
+2. **HTML tasarım örneği** · hedef domainin **header / navigasyon / footer gibi değişmeyecek
    alanları korunur**, sayfa içi gövde CRO/CX/UI-UX'e göre yeniden tasarlanır; **4 varyant** ve
    sağda yüzen bir varyant seçici sunulur. Kullanıcı yine hedef domaindeymiş hissi korunur.
    Bkz. `references/03-html-design.md`.
-3. **Sunum (opsiyonel)** Â· Inbound Design System (Bricolage + Outfit, coral #FF7B52 + dark teal
+3. **Sunum (opsiyonel)** · Inbound Design System (Bricolage + Outfit, coral #FF7B52 + dark teal
    #10332F) ile, raporun tüm bölümlerini yansıtan HTML deck. Bkz. `references/04-presentation.md`.
 
 ## En önemli kural: veri eksikse ÖNCE sor, sonra başla
@@ -47,7 +47,7 @@ tek mesajda, net biçimde sor. Zorunlu girdiler gelmeden araştırmaya/üretime 
 Zorunlu (bunlar olmadan başlama):
 - **Hedef sayfa URL'i** (tek sayfa).
 - **Hedef kelime** (bir veya birkaç; ana sorgu).
-- **Hedef sayfa ekran görüntüleri** Â· masaüstü + mobil. Playwright/Chrome ile alabiliyorsan al;
+- **Hedef sayfa ekran görüntüleri** · masaüstü + mobil. Playwright/Chrome ile alabiliyorsan al;
   alamıyorsan (giriş duvarı, bot engeli, render sorunu) kullanıcıdan iste.
 
 İsteğe bağlı ama varsa kaliteyi artırır (yoksa sor / varsay):
@@ -56,7 +56,7 @@ Zorunlu (bunlar olmadan başlama):
 - **Rakip seti** (yoksa SERP/AI keşfiyle türet).
 - **Mevcut SEO/optimizasyon dokümanı** (varsa rapor "Doc'ta var / Analiz eki" ayrımı için).
 - **Diller** (varsayılan Türkçe).
-- **Sunum isteniyor mu?** (varsayılan: hayır Â· yalnızca rapor + tasarım).
+- **Sunum isteniyor mu?** (varsayılan: hayır · yalnızca rapor + tasarım).
 
 ## Akış (sırayla)
 
@@ -84,14 +84,14 @@ ekran görüntüsü). Üretimden önce ne göründüğünü doğrula; "tamam" de
 - **Sunum:** Inbound Design System bundle'ını çalışırken indir: `references/04-presentation.md`
   içindeki URL'den `tar -xzf` ile aç, README'sini oku, slayt şablonlarını kullan.
 - **Görsel doğrulama:** Playwright ekran görüntüleri worktree köküne `./<dosya>.png` kaydeder; PIL
-  (Pillow) ile kırpma/yeniden boyutlama yap. LibreOffice yoksa pptx pixel-render edilemez Â· HTML
+  (Pillow) ile kırpma/yeniden boyutlama yap. LibreOffice yoksa pptx pixel-render edilemez · HTML
   deck ile QA et.
 
 ## Yazım ve görselleştirme kuralları (rapor + sunum + tasarım metinleri)
 
 Bu kurallar mevcut işin damıtılmış halidir; `references/02-html-report.md` içinde örneklerle açılır.
 
-- **Dil:** varsayılan Türkçe, pasif/3. tekil, kurumsal ton. **Em-dash (Â·) kullanma** (· veya virgül).
+- **Dil:** varsayılan Türkçe, pasif/3. tekil, kurumsal ton. **Em-dash (·) kullanma** (· veya virgül).
 - **Kesin vaat / abartı yok:** "garanti, en iyi, kesinlikle" yerine "değerlendirilebilir,
   gözlemlenmektedir, fayda sağlayabilir".
 - **Terimler orijinal dilde:** SEO jargonunu Türkçeleştirme. "atıf" yerine **mention**, "makine
