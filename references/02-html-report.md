@@ -48,11 +48,17 @@ Sıra ve içerik mevcut yapıyı izler; gereksiz bölüm atlanabilir, sayfa tipi
 10. **Kullanıcı Soruları & İçerik Eşleşmesi** · küme/örnek soru/yanıt yeri/FAQ adayı tablosu.
 11. **CRO / CX / UI-UX** · hedef sayfa (birincil) + (varsa) ikincil sayfa gözlemleri; tasarım
     önerisi + **tasarım örneğinin canlı/önizleme linki** ve 4 varyanttan bahis (bkz. 03).
-12. **Sayfa İçi & CWV** · denetim tablosu (öncelik etiketli) + ölçüm seti (onpage skoru, Title/Meta
-    krk, H2 sayısı, script, görsel alt metin, TTI/DOM) + CrUX/PSI teyit notu.
-13. **Aksiyon & İçerik Brief** · sekmeler: **Teknik · İçerik & PAA · CRO/CX/UI-UX · Core Web Vitals
-    · Örnek İçerik Brief**. Mevcut SEO dokümanı varsa kaynak etiketi: `Doc'ta var` (gri) / `Doc + ek`
-    (amber) / `Analiz eki` (coral) ile raporun özgün katkısını ayır; bir lejant + açıklama ekle.
+12. **Teknik · Hız · fast.com** · (A) On-page (SEO) denetim tablosu · (B) **ölçülen** CWV tablosu
+    (Lighthouse + gerçek tarayıcı; LCP/CLS/TBT/TTI/TTFB/ağırlık, gözlem tarihli, hedge yok) · (C) sayfa
+    hızı & gömülü iframe için **preconnect/facade/3.taraf erteleme** önerileri · (D) varsa fast.com tarzı
+    **otomatik-başlatma** mekaniğinin sayfa için değerlendirmesi. On-page ile CWV'yi **ayır**.
+13. **Aksiyon & Öneriler** · sekmeler: **SEO/Teknik · İçerik & FAQ · GEO · CRO/Dönüşüm · Core Web Vitals**.
+    Kaynak etiketleri: `★ önceden iletildi` / `+★ geliştirilmiş` / `Yeni` / `✓ uygulandı` ile raporun
+    özgün katkısını ayır; bir lejant ekle.
+13b. **İçerik Brief'leri** · geliştirilecek her içerik için uygulamaya hazır brief kartı (hedef kelime,
+    niyet, başlık, alt başlıklar, alıntılanabilir tanım, schema, iç link, CTA, hedef uzunluk + üreten
+    skill). Üretim/genişletme skill'leri: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`,
+    `seo-cluster`, `youtube-content-research` (bkz. 01 madde 11).
 14. **Geliştirme Alanları** · mevcut sayfalara eklenebilir bloklar + fırsat skoru tablosu.
 15. **Terim Sözlüğü & Kaynaklar** · `data-term` ile işaretlenen tüm terimlerin kısa tanımı + kaynak
     linkleri + footer (tek tarih/kaynak damgası).
@@ -72,6 +78,10 @@ değiştir; yapıyı bozma:
   çıktısı olduğu için kabul edilebilir · kullanıcıya teyit ettir).
 
 ## Görselleştirme ve okunabilirlik
+- **Her blok çerçeve veya gölge taşır (okunabilirlik · zorunlu).** Kart, callout, insight, tablo
+  sarmalayıcı, grafik kartı, ss kartı, brief kartı · hepsinde en az `border` veya `box-shadow`
+  (tercihen ikisi). Düz/çerçevesiz blok bırakma. **Conic-arc / parantez kenar süsleme yasak**
+  (temiz border + yumuşak gölge).
 - Uzun "okuma" callout'larını kısa madde imlerine indir.
 - Tablolar `.table-wrap` içinde, başlık satırı koyu, satırlar alternatif zebra, gölgeli.
 - Grafik kartları (`.chart-card`) açıklayıcı alt başlık + gölge + hover glow.

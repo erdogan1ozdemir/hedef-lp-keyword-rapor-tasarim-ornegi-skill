@@ -27,8 +27,10 @@ Tek sayfada, sağ kenarda **yüzen "VARYANT" seçici** ile anlık değişen 4 CR
 `body[data-variant=a|b|c|d]` ile CSS sürülür; varyanta özel öğeler DOM'da hep bulunur, CSS ile gösterilir.
 
 4 varyantı **CRO hipotezi** olarak çeşitlendir (sayfa tipine göre uyarlanır). Mevcut işteki örnek:
-- **A · Zengin** · geniş açıklama, büyük logolar/etiketler, bilgi yoğun. (Kartlarda dönen **conic
-  glow** + gradient ile "premium" his · `@property` ile animasyonlu conic-gradient kenar.)
+- **A · Zengin** · geniş açıklama, büyük logolar/etiketler, bilgi yoğun. Premium his için **temiz
+  çerçeve + yumuşak gölge** (ve istenirse düşük-opaklıkta düz iç-glow) kullan. **Conic-gradient ile
+  parantez/yay kenar KULLANMA** (transparent boşluklu conic, kartın kenarında "(" gibi yaylar
+  oluşturur · yasak). Premium algı temiz kart + accent şerit/rozet ile sağlanır.
 - **B · Sade** · küçük logolar, az metin, düz başlık, tek güçlü fiyat/CTA. Hızlı tarama hipotezi.
 - **C · Değer** · tasarruf satırı (üstü çizili eski fiyat + "~%X daha uygun"), değer kartı; değer
   çerçevesi hipotezi.

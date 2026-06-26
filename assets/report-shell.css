@@ -100,21 +100,28 @@ tbody tr:nth-child(even){background:var(--surface-2)}tbody tr:hover{background:v
 .sgroup .lbl{font-size:.92rem;font-weight:800;color:var(--brand)}
 .sgroup .dot{width:11px;height:11px;border-radius:50%}.sgroup.pos .dot{background:var(--green)}.sgroup.q .dot{background:var(--amber)}.sgroup.fb .dot{background:var(--accent)}
 
-/* screenshot grid + carousel + lightbox */
-.shot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:16px 0}
-.shot{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;transition:.18s;display:flex;flex-direction:column}
+/* screenshot grid + carousel + lightbox
+   Her shot kartı resting gölge + çerçeve taşır (okunabilirlik). Masaüstü/mobil etiketi (.shot__tag).
+   Lightbox ekrana oturan okunur genişlik + UZUN (mobil) görseller için DİKEY SCROLL. */
+.shot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:16px 0}
+.shot{position:relative;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;transition:.18s;display:flex;flex-direction:column;box-shadow:var(--shadow)}
 .shot:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);border-color:var(--accent)}
-.shot__img{overflow:hidden}.shot__img img{display:block;width:100%}
+.shot__img{overflow:hidden;max-height:260px}.shot__img img{display:block;width:100%}
 .shot__cap{padding:9px 11px;font-size:.78rem}.shot__cap b{display:block;color:var(--brand)}
+.shot__tag{position:absolute;top:8px;left:8px;background:var(--brand);color:#fff;font-size:.62rem;font-weight:800;padding:2px 8px;border-radius:var(--r-pill);z-index:1}
+.shot__tag.mob{background:var(--accent);color:#fff}
 .shot-carousel{display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:6px}
 .shot-carousel .shot{flex:0 0 230px}
 .carousel-wrap{position:relative}
 .carousel-btn{position:absolute;top:40%;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);cursor:pointer;z-index:2}
 .carousel-btn.prev{left:-8px}.carousel-btn.next{right:-8px}
-.lightbox{position:fixed;inset:0;background:rgba(8,16,30,.86);display:none;place-items:center;z-index:9999;padding:24px}
-.lightbox.show{display:grid}.lightbox img{max-width:94vw;max-height:86vh;border-radius:10px}
-.lightbox__cap{color:#dbe4f0;text-align:center;margin-top:10px;font-size:.85rem}
-.lightbox__close{position:absolute;top:18px;right:24px;color:#fff;font-size:2rem;cursor:pointer}
+.lightbox{position:fixed;inset:0;background:rgba(8,16,30,.92);display:none;z-index:9999;overflow:auto;padding:56px 16px 44px;text-align:center;-webkit-overflow-scrolling:touch}
+.lightbox.show{display:block}
+.lightbox img{width:auto;max-width:min(1040px,94vw);height:auto;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);vertical-align:top}
+.lightbox img.mob{max-width:min(430px,92vw)}  /* mobil tam-boy görsel okunur genişlikte, lightbox dikey kayar */
+.lightbox__cap{color:#dbe4f0;margin:12px auto 0;font-size:.85rem;max-width:640px;line-height:1.5}
+.lightbox__hint{position:fixed;left:0;right:0;bottom:12px;text-align:center;color:#aab6cc;font-size:.74rem;pointer-events:none}
+.lightbox__close{position:fixed;top:12px;right:22px;color:#fff;font-size:2.3rem;cursor:pointer;z-index:2;line-height:1}
 
 /* term tooltip (screen-top, fits viewport, above all) */
 .term{border-bottom:1.5px dotted var(--accent);cursor:help;font-weight:600}

@@ -36,10 +36,26 @@ alınamadı" yaz ve gerekiyorsa kullanıcıdan iste (05).
    konular, bölgesel ilgi.
 7. **Sosyal duygu** · X, Ekşi, Şikayetvar vb. gerçek paylaşımlar/girdiler. Tonu grupla (Olumlu /
    Soru-kafa karışıklığı / Geri bildirim-kapsam). Gerçek kullanıcı adları + özet + öne çıkan nokta.
-8. **Sayfa içi & CWV** · Title/Meta/H1/H2, Schema (WebPage/Product/FAQPage), görsel alt metin,
-   LCP/CLS/INP işaretleri (TTI/DOM proxy), iç bağlantı, onpage skoru. CrUX/PSI ile teyit önerisi notu.
-9. **CRO / CX gözlemi** · hedef sayfanın hero/CTA, karşılaştırma, değer bloğu, sosyal kanıt,
+8. **On-page (SEO)** · Title/Meta/H1/H2, Schema (WebPage/Product/FAQPage), görsel alt/title, iç/dış
+   link, içerik/okunabilirlik, breadcrumb. Bunları **CWV'den ayrı** raporla (on-page ≠ CWV).
+9. **Core Web Vitals · GERÇEKTEN ölç (hedge yazma).** Sıralama:
+   - **Lighthouse** (DataForSEO `on_page_lighthouse`) · LCP/FCP/CLS/TBT/TTI/Speed Index + performans skoru
+     + toplam ağırlık + ana iş parçacığı/JS bootup + 3. taraf entity'ler. Lab referansı budur.
+   - **PSI API** (`googleapis.com/pagespeedonline/v5`, mobile+desktop) · saha (CrUX) p75 + lab. Anahtarsız
+     429 verirse Lighthouse + tarayıcı ölçümüne düş (durumu rapora değil, sohbette belirt).
+   - **Gerçek tarayıcı** (Playwright) · PerformanceObserver ile LCP (+öğe), layout-shift (CLS),
+     navigation timing (TTFB/FCP/DCL/load). "olmadı tarayıcı aç da ölç."
+   - **Ahrefs Site Audit** (varsa) · sayfa/performans sorunları çapraz kontrol.
+   - LCP/CLS/INP eşikleri: iyi LCP<2,5sn · CLS<0,1 · INP/TBT proxy<200ms. Embed/iframe sayfalarda
+     LCP öğesini gerçek ölçümle tanımla; "ölçülemiyor" yazma.
+   - Ayrıca: gömülü test alanının (iframe) **preload/preconnect/facade** ile hızlandırma önerileri;
+     varsa fast.com tarzı **otomatik-başlatma** mekaniğinin bu sayfa için uygunluğunu değerlendir.
+10. **CRO / CX gözlemi** · hedef sayfanın hero/CTA, karşılaştırma, değer bloğu, sosyal kanıt,
    mobil öncelik durumu · tasarım önerilerinin (03) dayanağı.
+11. **İçerik brief'leri** · geliştirilecek içerikler için uygulamaya hazır brief üret (hedef kelime,
+   niyet, başlık, alt başlıklar, alıntılanabilir tanım, schema, iç link, CTA). Ürün/genişletme için
+   ilgili skill'leri kullan: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`,
+   `youtube-content-research`. Brief'leri rapora ayrı bir "İçerik Brief'leri" bölümü olarak ekle.
 
 ## Çıktı: veri klasörü
 Toplanan ham veriyi `<marka>-rapor-html/data/` altına JSON/MD olarak kaydet (keyword-metrics,

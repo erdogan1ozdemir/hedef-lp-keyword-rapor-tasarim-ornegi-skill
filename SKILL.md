@@ -158,7 +158,18 @@ tetiklenir ve kullanıcıya bağlaması/onaylaması bildirilir.
 
 Bu kurallar mevcut işin damıtılmış halidir; `references/02-html-report.md` içinde örneklerle açılır.
 
-- **Dil:** varsayılan Türkçe, pasif/3. tekil, kurumsal ton. **Em-dash (uzun tire) kullanma**; yerine · veya virgül.
+- **Dil:** varsayılan Türkçe, pasif/3. tekil, kurumsal ton.
+- **Em-dash (—) YASAK · çok önemli.** Hiçbir çıktıda uzun tire bulunmamalı; yerine `·`, `,`, `-` veya `&`.
+  **Teslimden hemen önce SON KONTROL:** tüm üretilen dosyalarda `grep -rn "—"` çalıştır; çıkan her `—`'yi temizle.
+- **"Ölçülemiyor / atfı net değil" gibi ifadeler raporda YASAK.** Rapor markaya gider; bir metrik
+  ölçülemediyse hedge cümlesi yazma · ya gerçekten ölç (Lighthouse/PSI/CrUX, gerekiyorsa tarayıcı aç),
+  ya da ölçemiyorsan bunu **rapora değil, sohbette kullanıcıya** bildir ("şu veriyi ölçüp iletmem
+  gerekiyor"). Raporda yalnızca ölçülmüş, gözlem tarihli gerçek değerler yer alır.
+- **Okunabilirlik · tüm bloklara çerçeve veya gölge.** Kart, callout, tablo sarmalayıcı, grafik kartı,
+  ekran görüntüsü kartı, brief kartı vb. her blok en az bir `border` veya `box-shadow` taşır (tercihen
+  ikisi). Düz, çerçevesiz metin/kart bırakma.
+- **"Parantez" / conic-arc süsleme YASAK.** Kartların çevresine kıvrımlı/yay (conic-gradient ile
+  transparent boşluklu) parantez benzeri çerçeve koyma · temiz `border` + yumuşak `box-shadow` kullan.
 - **Kesin vaat / abartı yok:** "garanti, en iyi, kesinlikle" yerine "değerlendirilebilir,
   gözlemlenmektedir, fayda sağlayabilir".
 - **Terimler orijinal dilde:** SEO jargonunu Türkçeleştirme. "atıf" yerine **mention**, "makine
