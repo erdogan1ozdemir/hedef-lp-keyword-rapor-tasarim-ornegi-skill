@@ -16,9 +16,13 @@ Hedef sayfanın **gerçekçi bir klonu** üzerinde, sayfa içi gövdeyi CRO/CX/U
   - **kampanya/LP:** tek amaçlı hero + kanıt + tek güçlü CTA.
 
 ## Klonlama
-`clone-website` skill'i veya canlı DOM/asset çıkarımı kullan. Header/nav/footer'ın HTML+CSS'ini ve
-asset'lerini (logo, ikon, font) çıkar; gövdeyi kendi geliştirilmiş bileşenlerinle değiştir. Proprietary
-font yüklenemiyorsa en yakın fallback'i kullan ve not düş.
+**`clone-website` skill'ini kullan** (yoksa canlı DOM/asset çıkarımı). Header/nav/footer'ı **birebir**
+çıkar ve klonla; gövdeyi kendi geliştirilmiş bileşenlerinle değiştir.
+- **Renkleri BİREBİR al (çok önemli):** renkleri tahmin etme; canlı sayfadan **computed style** ile
+  gerçek hex kodlarını çıkar (`getComputedStyle` ile arka plan/kart/buton/accent renklerini ve frekansını
+  topla) ve token'lara birebir yaz. Uydurma ara-ton kullanma (ör. gerçek #001151 dururken #0a1a5e yazma).
+- **Header / footer 1:1:** yapı, logo, menü ve footer canlı sayfayla aynı olmalı; logoyu inline SVG yap
+  (CDN'e bağımlı kalma). Proprietary font yüklenemiyorsa en yakın fallback'i kullan ve not düş.
 
 ## Varyant sistemi (4 varyant + yüzen seçici)
 

@@ -63,7 +63,9 @@ Zorunlu (bunlar olmadan başlama):
 ```
 0. INTAKE      → gereklilikleri topla, eksikse sor (references/00-intake.md)
 1. ARAŞTIRMA   → kelime/SERP/AI Overview/Trends/rakip/sosyal veri (references/01-research.md)
+1b. GAP        → rakip boşluk analizi: kelime + içerik + FAQ gap (references/01-research.md)
 2. RAPOR       → HTML rapor, marka rengine uyarlanmış (references/02-html-report.md)
+2b. BRIEF      → detaylı içerik yazım brief'i (references/02-html-report.md)
 3. TASARIM     → hedef sayfa klon kabuğu + 4 gövde varyantı (references/03-html-design.md)
 4. SUNUM       → istenirse Inbound DS deck (references/04-presentation.md)
 5. GÖRSEL/EKSİK→ tamamlanamayan görselleri kullanıcıdan iste (references/05-screenshots-and-gaps.md)
@@ -72,6 +74,15 @@ Zorunlu (bunlar olmadan başlama):
 
 Her adımı bitirince çıktıyı **görsel olarak QA et** (yerel `python3 -m http.server` + Playwright ile
 ekran görüntüsü). Üretimden önce ne göründüğünü doğrula; "tamam" demeden önce gör.
+
+### Bu akışta KULLANILACAK skill'ler (varsa Skill aracıyla çağır)
+Aşağıdaki skill'ler bu işin doğal parçasıdır; mevcutsa ilgili adımda kullan:
+- **clone-website** · tasarım örneği için hedef sayfayı klonlama (header/footer 1:1, renk kodları birebir).
+- **frontend-design** · rapor/tasarım görünüm kalitesi ve görünüm hatalarını giderme.
+- **seo-content** · içerik brief'i ve E-E-A-T metni; **seo-meta-writer** · başlık/meta; **seo-geo** · alıntılanabilir pasaj + AI Overview;
+  **seo-schema** · JSON-LD; **seo-cluster** · konu kümesi + iç bağlantı; **youtube-content-research** · video tabanlı FAQ.
+- **seo-dataforseo / Ahrefs MCP** · kelime, SERP, rakip boşluk (gap) verisi; **pagespeed/Lighthouse** · CWV ölçümü.
+Gerekli skill bağlı değilse kullanıcıya bildir; sessizce atlama.
 
 ## Çalışma gereklilikleri (skill çalışırken)
 
@@ -165,18 +176,27 @@ Bu kurallar mevcut işin damıtılmış halidir; `references/02-html-report.md` 
   ölçülemediyse hedge cümlesi yazma · ya gerçekten ölç (Lighthouse/PSI/CrUX, gerekiyorsa tarayıcı aç),
   ya da ölçemiyorsan bunu **rapora değil, sohbette kullanıcıya** bildir ("şu veriyi ölçüp iletmem
   gerekiyor"). Raporda yalnızca ölçülmüş, gözlem tarihli gerçek değerler yer alır.
-- **Bloklar zeminden NET ayrışır.** Ya kart zemini sayfa zemininden farklı olsun, ya da her blok
-  (kart, callout, insight, tablo sarmalayıcı, grafik kartı, ss kartı, brief kartı) **çerçeve + belirgin
-  gölge** taşısın. Düz/çerçevesiz blok bırakma. Karosel/vurgu renkleri **hedef site temasına uyumlu**
-  (tokenlar markaya ayarlı).
-- **"Parantez" / sol-kenar / conic-arc süsleme YASAK (kullanıcı reddetti).** Yuvarlatılmış karta kalın
-  `border-left`/`border-right` koyma · kenar köşeyi takip edip "(" parantez yaratır. Vurgu için **üst
-  renkli bant** (`::before` height:4px), **tonlu dolu panel**, **pill başlık** veya **köşe rozet** kullan.
-  Conic-gradient (transparent boşluklu dönen yay) kenar da yasak. Temiz `border` + yumuşak `box-shadow`.
-- **MOBİL YATAY TAŞMA olmamalı (zorunlu).** Grid `1fr` track'leri min-content ile şişip taşma yaratır;
-  `main` + grid çocuklarına `min-width:0`, `html/body`'ye `overflow-x:hidden` (report-shell.css'te var).
-  Teslimden önce 375px'te `scrollWidth === clientWidth` doğrula. Mobilde ToC, FAB + `.toc-sheet`
-  bottom-sheet ile açılır (sadece scroll değil).
+- **Arka plan KAĞIT-GRİ; bloklar zeminden NET ayrışır.** Sayfa zemini hafif gri (`--bg`, ör. #f2f4fa),
+  kartlar beyaz + **çerçeve + belirgin gölge** ile ayrışır. Her blok (kart, callout, insight, tablo
+  sarmalayıcı, grafik kartı, ss kartı, brief kartı) en az çerçeve veya gölge taşır; section ve tab
+  çerçeveleri belirgin (1.5px). Karosel/vurgu renkleri **hedef site temasına uyumlu** (tokenlar markaya ayarlı).
+- **"Parantez" / TEK-KENAR şerit YASAK (kullanıcı iki kez reddetti · sol-kenar VE üst-bant dahil).**
+  Yuvarlatılmış karta `border-left`/`border-right` **veya** üst renkli ince bant (`::before` şerit) koyma;
+  ikisi de köşe yarıçapını takip edip parantez/yay izlenimi verir. Vurgu için referans bileşen
+  menüsünden TAM-çerçeveli stiller seç: **Yumuşak Glow** (tam çerçeve + accent glow), **tonlu dolu panel**,
+  **pill başlık**, **köşe ikon rozeti**, **çift çerçeve**, **iOS soft kart**. Conic-arc kenar da yasak.
+- **Okunabilirlik:** akıcı kök font `clamp(16px,0.45vw+14.5px,18.5px)` (turkcell-one okunabilirliği);
+  başlıklar display fontu, gövde okunur boyutta.
+- **"Kanıt" gibi iddialı sözcükler kullanma;** yerine "ekran görüntüsü", "örnek", "görünüm" yeterli.
+- **Başlıklar NÖTR, net ve düz olmalı.** Devrik / anlamsız / pazarlama-jargonlu başlık yazma. Gereksiz
+  niteleyici ekleme (ör. "Yapılacaklar · işaretli ve önceliklendirilmiş" yerine sadece "Yapılacaklar";
+  "Hedef sayfa: ölçüm aracı (hub) · iyi sıralanıyor ama iki sorun var" yerine "Sayfanın Mevcut Durumu").
+- **LOGO her zaman:** appbar'a HER ZAMAN Inbound wordmark (sağ) eklenir; hedef markanın logosu (sol)
+  de eklenir (inline SVG ya da asset). Inbound wordmark `assets/inbound-wordmark.png`.
+- **MOBİL YATAY TAŞMA olmamalı + ToC desktop'ta SABİT.** `main` + grid çocuklarına `min-width:0`;
+  `html/body`'ye **`overflow-x:clip`** (HİDDEN DEĞİL · `overflow:hidden` ana öğede `position:sticky`'yi
+  bozar, ToC scroll'da kayar). ToC desktop'ta sticky kalır; mobilde FAB + `.toc-sheet` bottom-sheet ile
+  açılır. Teslimden önce 375px'te `scrollWidth === clientWidth` ve desktop'ta scroll edince ToC sabit mi doğrula.
 - **Kesin vaat / abartı yok:** "garanti, en iyi, kesinlikle" yerine "değerlendirilebilir,
   gözlemlenmektedir, fayda sağlayabilir".
 - **Terimler orijinal dilde:** SEO jargonunu Türkçeleştirme. "atıf" yerine **mention**, "makine

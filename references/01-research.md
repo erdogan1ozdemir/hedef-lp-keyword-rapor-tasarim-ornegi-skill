@@ -52,10 +52,22 @@ alınamadı" yaz ve gerekiyorsa kullanıcıdan iste (05).
      varsa fast.com tarzı **otomatik-başlatma** mekaniğinin bu sayfa için uygunluğunu değerlendir.
 10. **CRO / CX gözlemi** · hedef sayfanın hero/CTA, karşılaştırma, değer bloğu, sosyal kanıt,
    mobil öncelik durumu · tasarım önerilerinin (03) dayanağı.
-11. **İçerik brief'leri** · geliştirilecek içerikler için uygulamaya hazır brief üret (hedef kelime,
-   niyet, başlık, alt başlıklar, alıntılanabilir tanım, schema, iç link, CTA). Ürün/genişletme için
-   ilgili skill'leri kullan: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`,
-   `youtube-content-research`. Brief'leri rapora ayrı bir "İçerik Brief'leri" bölümü olarak ekle.
+11. **RAKİP BOŞLUK (GAP) ANALİZİ · zorunlu, ayrı bölüm.** Rakiplerin trafik aldığı, hedef sayfanın
+   almadığı/zayıf olduğu alanları çıkar:
+   - **Kelime gap:** her rakip sayfası için Ahrefs `site-explorer-organic-keywords` (mode=exact, country)
+     ile trafik getiren kelimeleri çek; hedef sayfanınkiyle karşılaştır. Rakip iyi sırada (top 1-3) ama
+     hedef sıralamıyor/5+ ise BOŞLUK. (Alternatif: DataForSEO `dataforseo_labs_google_page_intersection`,
+     pages=rakipler, exclude_pages=hedef.) Markalı rakip terimlerini ele.
+   - **İçerik/modül gap:** rakip sayfalarda olup hedefte olmayan bölüm/modüller (tablo, hesaplayıcı,
+     kampanya kartı, kılavuz). Round-1 rakip distilasyonundan türet.
+   - **FAQ gap:** rakiplerin sorduğu, hedefin cevaplamadığı sorular.
+   Bunları rapora **"Rakip Boşluk Analizi"** bölümü + `data/07-gap-analysis.md` olarak yaz; tabloyla göster.
+12. **İçerik yazım brief'i · zorunlu, ayrı ve DETAYLI bölüm.** Boşlukları kapatacak uygulamaya hazır brief:
+   başlık+meta (≤60/≤155 krk), **H1/H2/H3 hiyerarşisi** (her başlık altında ne olacak), **birincil/ikincil
+   kelimeler ve kullanım yoğunluğu** (hangi kelime kaç kez, nerede), **eklenecek tablolar** (hız-ihtiyaç,
+   indirme süresi vb.), **eklenecek/cevaplanacak FAQ listesi**, **özet/giriş içeriği**, iç link ve schema.
+   Üretim/genişletme: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`,
+   `youtube-content-research`. Rapora **"İçerik Yazım Brief'i"** bölümü olarak ekle.
 
 ## Çıktı: veri klasörü
 Toplanan ham veriyi `<marka>-rapor-html/data/` altına JSON/MD olarak kaydet (keyword-metrics,

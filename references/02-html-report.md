@@ -13,10 +13,12 @@ yalnız renkler hedef markanın LP rengine uyarlanır (okunabilirlik korunarak).
   `<div class="toc-scroll">…</div>` içine sarılır** ve bu sarmalayıcı `overflow-y:auto;min-height:0`
   ile kendi içinde kayar (başlık `<h4>` sabit kalır). Böylece conic glow korunur, liste taşmaz.
   `assets/report-shell.css` bu kuralları içerir; markup'ta linkleri `.toc-scroll` ile sarmayı unutma.
-- **Header:** marka adı + "Rakip Analizi & SEO / GEO Değerlendirmesi" + tarih çipi + "Hedef: <path>"
-  + Inbound wordmark.
-- **Kartlar/karoseller:** gölgeli; üstüne gelince coral/accent **highlight glow** (hover lift).
-- **Responsive, büyük-okunur tipografi** (gövde ~1.02rem / 1.65).
+- **Header (appbar · AÇIK zemin, LOGOLU):** SOL'da **hedef markanın logosu** (inline SVG ya da asset) +
+  marka adı + "Rakip Analizi & SEO / GEO Değerlendirmesi" alt başlığı; SAĞ'da tarih çipi, "Hedef: <path>"
+  ve **Inbound wordmark** (`assets/inbound-wordmark.png`). Logo HER ZAMAN eklenir (ikisi de). `.appbar` sınıfı.
+- **Arka plan kağıt-gri** (`--bg`); kartlar beyaz + çerçeve + gölge ile ayrışır.
+- **Kartlar/karoseller:** çerçeve + gölge; üstüne gelince hafif lift. TEK-KENAR şerit/parantez yok (aşağıya bak).
+- **Akıcı, büyük-okunur tipografi:** kök font `clamp(16px,0.45vw+14.5px,18.5px)` (turkcell-one okunabilirliği).
 - **Lightbox:** her ekran görüntüsü tıklanınca tam ekran açılır (`data-full` + `data-cap`).
 - **Term tooltip:** `.term[data-term]` → ekranın üstüne çıkan, ekrana sığan, ortalanmış,
   tüm elementlerin üstünde (z-index yüksek) tooltip; hover + tıkla ile açılır.
@@ -38,6 +40,10 @@ Sıra ve içerik mevcut yapıyı izler; gereksiz bölüm atlanabilir, sayfa tipi
    **GEO yol haritası** (alıntılanabilir tanım, eksiksiz FAQPage, machine-readable karşılaştırma
    tablosu, değer bloğu, 40-60 kelimelik alıntılanabilir pasaj, robots.txt GPTBot/Google-Extended/
    PerplexityBot + llms.txt, publisher mention, dateModified tazeliği).
+5b. **Rakip Boşluk Analizi** · rakiplerin trafik aldığı, hedefin almadığı/zayıf olduğu KELİME tablosu
+   (hacim/KD/rakip sırası/hedef sırası/durum) + İÇERİK-MODÜL gap tablosu (rakipte var/hedefte yok) +
+   FAQ gap listesi. Veri: Ahrefs organic-keywords karşılaştırması (bkz. 01 madde 11). Bu bölüm,
+   içerik brief'inin (aşağıda) gerekçesidir.
 6. **Talep Havuzu & Content Gap** · hacim/KD/rakip/fırsat tablosu + "hangi sorgu → hangi rakip URL"
    doğrulanmış, tıklanabilir tablo + ilgili ekran görüntüleri.
 7. **Rakip İçerikte Neler Var** · karşılaştırma matrisi (marka vs rakipler) + editöryel liderler +
@@ -55,10 +61,12 @@ Sıra ve içerik mevcut yapıyı izler; gereksiz bölüm atlanabilir, sayfa tipi
 13. **Aksiyon & Öneriler** · sekmeler: **SEO/Teknik · İçerik & FAQ · GEO · CRO/Dönüşüm · Core Web Vitals**.
     Kaynak etiketleri: `★ önceden iletildi` / `+★ geliştirilmiş` / `Yeni` / `✓ uygulandı` ile raporun
     özgün katkısını ayır; bir lejant ekle.
-13b. **İçerik Brief'leri** · geliştirilecek her içerik için uygulamaya hazır brief kartı (hedef kelime,
-    niyet, başlık, alt başlıklar, alıntılanabilir tanım, schema, iç link, CTA, hedef uzunluk + üreten
-    skill). Üretim/genişletme skill'leri: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`,
-    `seo-cluster`, `youtube-content-research` (bkz. 01 madde 11).
+13b. **İçerik Yazım Brief'i** · DETAYLI ve uygulamaya hazır (boşluk analizini kapatır). En az şunları içerir:
+    (1) **Başlık + meta** (≤60 / ≤155 krk) + H1; (2) **başlık hiyerarşisi tablosu** (H1/H2/H3 · her başlık
+    altında ne olacak · hedef kelime); (3) **kelime kullanım yoğunluğu tablosu** (birincil/ikincil kelime ·
+    kaç kez · nerede); (4) **eklenecek tablolar** (hız-ihtiyaç eşleme, indirme süresi vb.); (5) **eklenecek/
+    cevaplanacak FAQ listesi**; (6) **özet/giriş bölümünde ne olmalı**; iç link + schema. Üreten skill'ler:
+    `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`, `youtube-content-research`.
 14. **Geliştirme Alanları** · mevcut sayfalara eklenebilir bloklar + fırsat skoru tablosu.
 15. **Terim Sözlüğü & Kaynaklar** · `data-term` ile işaretlenen tüm terimlerin kısa tanımı + kaynak
     linkleri + footer (tek tarih/kaynak damgası).
@@ -78,17 +86,19 @@ değiştir; yapıyı bozma:
   çıktısı olduğu için kabul edilebilir · kullanıcıya teyit ettir).
 
 ## Görselleştirme ve okunabilirlik
-- **Her blok zeminden NET ayrışır (zorunlu).** İki yoldan biri: ya kart/blok zemini sayfa zemininden
-  farklı olsun, ya da her blok **çerçeve + belirgin gölge** taşısın (tercihen ikisi). Kart, callout,
-  insight, tablo sarmalayıcı, grafik kartı, ss kartı, brief kartı · hiçbiri düz/çerçevesiz kalmaz.
-- **Parantez "(" kenar YASAK · çok önemli.** Yuvarlatılmış (`border-radius`) bir karta kalın
-  **`border-left`/`border-right`** koyma · kenar köşe yarıçapını takip edip "(" parantez şekli yaratır
-  (kullanıcı bunu açıkça reddetti). Vurgu için yerine: **üst renkli bant** (`::before` ile
-  `top:0;left:0;right:0;height:4px`), **tonlu dolu panel**, **pill başlık** veya **köşe rozet** kullan
-  (bkz. bileşen menüsü: Üst Renkli Bant, Dolu Panel, Pill Başlık, Köşe İkon Rozeti). Conic-arc
-  (transparent boşluklu dönen conic) kenar da yasak.
+- **Zemin kağıt-gri; her blok NET ayrışır (zorunlu).** Sayfa zemini hafif gri (`--bg`), kartlar beyaz +
+  **çerçeve + belirgin gölge**. Kart, callout, insight, tablo sarmalayıcı, grafik kartı, ss kartı, brief
+  kartı · hiçbiri düz/çerçevesiz kalmaz. **Section ve tab çerçeveleri belirgin** (1.5px).
+- **TEK-KENAR şerit / parantez YASAK · çok önemli (kullanıcı iki kez reddetti).** Yuvarlatılmış karta ne
+  `border-left`/`border-right`, **ne de üst renkli ince bant** (`::before` şerit) koy · ikisi de köşe
+  yarıçapını izleyip parantez/yay görünümü verir. Vurgu için referans bileşen menüsünden **TAM çerçeveli**
+  stil seç: **Yumuşak Glow** (tam çerçeve + accent glow), **Dolu Panel** (tonlu dolgu), **Pill Başlık**,
+  **Köşe İkon Rozeti**, **Çift Çerçeve**, **iOS Soft Kart**. Conic-arc kenar da yasak. `.insight` artık
+  Yumuşak Glow (tam çerçeve + glow) kullanır.
 - **Karosel/vurgu renkleri hedef sitenin tema ve renkleriyle uyumlu olur** (tokenlar `--accent`/`--brand`
-  hedef markaya ayarlanır); blok stilleri marka temasına göre renklenir, referans paletini kopyalama.
+  hedef markaya ayarlanır); referans paletini kopyalama.
+- **Başlıklar nötr ve net** (devrik/jargonlu değil); gereksiz niteleyici yok ("Yapılacaklar · işaretli ve
+  önceliklendirilmiş" değil "Yapılacaklar"). **"Kanıt" sözcüğü kullanma**; "ekran görüntüsü/örnek" yeterli.
 - Uzun "okuma" callout'larını kısa madde imlerine indir.
 - Tablolar `.table-wrap` içinde, başlık satırı koyu, satırlar alternatif zebra, gölgeli.
 - Grafik kartları (`.chart-card`) açıklayıcı alt başlık + gölge + hover glow.
