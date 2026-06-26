@@ -28,7 +28,11 @@ h1,h2,h3,h4,.eyebrow{font-family:var(--display)}
 
 /* layout: sticky ToC + content */
 .layout{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:230px 1fr;gap:24px;padding:24px 22px 80px;align-items:start}
-.sidenav{position:sticky;top:74px;align-self:start;height:fit-content;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:13px;margin-left:-16px;box-shadow:0 12px 34px rgba(16,35,63,.12),0 3px 8px rgba(16,35,63,.06);z-index:1}
+/* ToC ekrana dikey sığar: max-height + iç scroll. Linkleri .toc-scroll ile sar (bkz. 02). */
+.sidenav{position:sticky;top:74px;align-self:start;max-height:calc(100vh - 92px);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:13px;margin-left:-16px;box-shadow:0 12px 34px rgba(16,35,63,.12),0 3px 8px rgba(16,35,63,.06);z-index:1}
+.sidenav h4{flex:none}
+.toc-scroll{overflow-y:auto;min-height:0;margin:0 -4px;padding:0 4px;display:flex;flex-direction:column;gap:1px;scrollbar-width:thin;scrollbar-color:var(--accent-soft) transparent}
+.toc-scroll::-webkit-scrollbar{width:6px}.toc-scroll::-webkit-scrollbar-thumb{background:var(--accent-soft);border-radius:6px}
 .sidenav::before{content:"";position:absolute;inset:-3px;border-radius:calc(var(--r-lg) + 3px);background:conic-gradient(from var(--toc-ang,0deg),var(--accent),var(--brand),#19c0ff,var(--accent));filter:blur(11px);opacity:.5;z-index:-1;animation:tocGlow 7s linear infinite}
 @property --toc-ang{syntax:"<angle>";initial-value:0deg;inherits:false}
 @keyframes tocGlow{to{--toc-ang:360deg}}

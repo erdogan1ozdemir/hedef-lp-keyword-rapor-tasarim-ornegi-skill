@@ -181,6 +181,12 @@ Bu kurallar mevcut işin damıtılmış halidir; `references/02-html-report.md` 
 └── CALISMA-TAKIP.md         → adım adım ne yapıldı, hangi veri nereden, eksikler
 ```
 
+**Deploy edilecekse (Vercel/Railway)** yapı değişir: **rapor köke** (`/index.html` + `assets/` +
+`data/`), tasarım **`/demo`** altına **tek dosya self-contained** olarak alınır; köke `vercel.json`
+(cleanUrls), `server.js` (sıfır-bağımlılık statik sunucu) ve `package.json` (`start: node server.js`)
+eklenir. Detay ve şablonlar: `references/06-deploy.md`. Kökte `index.html` yoksa `/` boş görünür;
+`/demo` göreli asset'leri kırarsa sayfa stilsiz "bozuk" gelir → demo tek dosya yapılır.
+
 Teslimde her çıktının yolunu ve (varsa) canlı/önizleme linkini ver, raporda görsel olarak eksik
 kalan ne varsa **net bir liste** halinde kullanıcıdan iste.
 
@@ -194,6 +200,7 @@ kalan ne varsa **net bir liste** halinde kullanıcıdan iste.
 | `references/03-html-design.md` | Tasarım örneği: klon kabuk + 4 gövde varyantı + yüzen seçici |
 | `references/04-presentation.md` | Inbound DS deck: indir, slayt eşleme, tema |
 | `references/05-screenshots-and-gaps.md` | Ekran görüntüsü ihtiyaçları + eksikleri kullanıcıdan isteme |
-| `assets/report-shell.css` | Raporun marka-token'lı temel CSS'i (başlangıç şablonu) |
+| `references/06-deploy.md` | Vercel + Railway deploy: kök index.html, /demo tek dosya, vercel.json/server.js/package.json + mobil QA |
+| `assets/report-shell.css` | Raporun marka-token'lı temel CSS'i (başlangıç şablonu, ToC dikey-sığar) |
 
 Önce `references/00-intake.md`'i oku ve intake kapısını uygula. Sonra sırayla ilerle.

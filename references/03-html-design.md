@@ -56,6 +56,12 @@ için `ui-ux-pro-max` ve `frontend-design` skill'lerinden yararlan.
 Hedef tek sayfa olsa da, detay/alt sayfa örneği faydalıysa ikinci bir HTML (`detay.html?...`) üretilebilir.
 Aksi halde tek `index.html` yeterli. Footer/nav her sayfada aynı kabukla render edilir (ortak `app.js`).
 
+## Deploy için tek dosya (önemli)
+Tasarım örneği bir alt yolda (`/demo`) yayınlanacaksa **tek dosya self-contained** üret: CSS, JS ve
+logo SVG **inline**. Sebebi: `cleanUrls` ile `/demo` (sondaki `/` yok) açıldığında göreli `style.css`
+/ `app.js` linkleri kök'e (`/style.css`) çözülüp 404 olur ve sayfa **stilsiz** gelir. Inline edersen
+hiçbir host'ta bozulmaz. Klon kabuğun logosunu da inline SVG yap (CDN'e bağımlı kalma). Bkz. `06-deploy.md`.
+
 ## Marka uyumu
 Tasarım örneği hedef markanın renk/tipografi/logosunu kullanır (klon kabuğundan). Geliştirilen
 bileşenler de marka diline sadık kalır; CRO/UX iyileştirmesi görsel kimliği bozmadan yapılır.

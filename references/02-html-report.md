@@ -8,6 +8,11 @@ yalnız renkler hedef markanın LP rengine uyarlanır (okunabilirlik korunarak).
 
 - **İki sütun:** solda yapışkan **ToC (Bölümler)** + sağda içerik. ToC biraz sola taşınır, gölge +
   dönen **conic glow** ile öne çıkar; mobilde gizlenip sağ-altta "☰ Bölümler" FAB + sheet ile açılır.
+- **ToC ekrana dikey SIĞMALI (önemli):** ToC bölüm sayısı arttığında ekrandan taşmamalı. `.sidenav`
+  `max-height:calc(100vh - 92px)` + `display:flex;flex-direction:column` olur; **bölüm linkleri
+  `<div class="toc-scroll">…</div>` içine sarılır** ve bu sarmalayıcı `overflow-y:auto;min-height:0`
+  ile kendi içinde kayar (başlık `<h4>` sabit kalır). Böylece conic glow korunur, liste taşmaz.
+  `assets/report-shell.css` bu kuralları içerir; markup'ta linkleri `.toc-scroll` ile sarmayı unutma.
 - **Header:** marka adı + "Rakip Analizi & SEO / GEO Değerlendirmesi" + tarih çipi + "Hedef: <path>"
   + Inbound wordmark.
 - **Kartlar/karoseller:** gölgeli; üstüne gelince coral/accent **highlight glow** (hover lift).
@@ -77,3 +82,6 @@ değiştir; yapıyı bozma:
 `python3 -m http.server` ile servis et, Playwright ile bölümleri gez ve ekran görüntüsü al. Kontrol:
 em-dash 0, kırık görsel 0, tooltip çözülüyor, ToC glow/FAB çalışıyor, tablolar hizalı, mojibake
 (UTF-8 dışı `Ã`, `Ä±` vb.) yok. Mojibake bulursan kaynağı düzelt (genelde sed/perl UTF-8 hatası).
+- **Mobil + kısa viewport:** 390px genişlikte rapor tek sütun, FAB görünür; ~620px **yükseklikte**
+  ToC ekrana sığar ve `.toc-scroll` içinde kayar (taşma yok). İkisini de Playwright ile doğrula.
+- **Deploy uyumu:** çıktı Vercel (statik) ve Railway (node) için hazır olmalı; bkz. `references/06-deploy.md`.
