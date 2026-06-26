@@ -165,11 +165,18 @@ Bu kurallar mevcut işin damıtılmış halidir; `references/02-html-report.md` 
   ölçülemediyse hedge cümlesi yazma · ya gerçekten ölç (Lighthouse/PSI/CrUX, gerekiyorsa tarayıcı aç),
   ya da ölçemiyorsan bunu **rapora değil, sohbette kullanıcıya** bildir ("şu veriyi ölçüp iletmem
   gerekiyor"). Raporda yalnızca ölçülmüş, gözlem tarihli gerçek değerler yer alır.
-- **Okunabilirlik · tüm bloklara çerçeve veya gölge.** Kart, callout, tablo sarmalayıcı, grafik kartı,
-  ekran görüntüsü kartı, brief kartı vb. her blok en az bir `border` veya `box-shadow` taşır (tercihen
-  ikisi). Düz, çerçevesiz metin/kart bırakma.
-- **"Parantez" / conic-arc süsleme YASAK.** Kartların çevresine kıvrımlı/yay (conic-gradient ile
-  transparent boşluklu) parantez benzeri çerçeve koyma · temiz `border` + yumuşak `box-shadow` kullan.
+- **Bloklar zeminden NET ayrışır.** Ya kart zemini sayfa zemininden farklı olsun, ya da her blok
+  (kart, callout, insight, tablo sarmalayıcı, grafik kartı, ss kartı, brief kartı) **çerçeve + belirgin
+  gölge** taşısın. Düz/çerçevesiz blok bırakma. Karosel/vurgu renkleri **hedef site temasına uyumlu**
+  (tokenlar markaya ayarlı).
+- **"Parantez" / sol-kenar / conic-arc süsleme YASAK (kullanıcı reddetti).** Yuvarlatılmış karta kalın
+  `border-left`/`border-right` koyma · kenar köşeyi takip edip "(" parantez yaratır. Vurgu için **üst
+  renkli bant** (`::before` height:4px), **tonlu dolu panel**, **pill başlık** veya **köşe rozet** kullan.
+  Conic-gradient (transparent boşluklu dönen yay) kenar da yasak. Temiz `border` + yumuşak `box-shadow`.
+- **MOBİL YATAY TAŞMA olmamalı (zorunlu).** Grid `1fr` track'leri min-content ile şişip taşma yaratır;
+  `main` + grid çocuklarına `min-width:0`, `html/body`'ye `overflow-x:hidden` (report-shell.css'te var).
+  Teslimden önce 375px'te `scrollWidth === clientWidth` doğrula. Mobilde ToC, FAB + `.toc-sheet`
+  bottom-sheet ile açılır (sadece scroll değil).
 - **Kesin vaat / abartı yok:** "garanti, en iyi, kesinlikle" yerine "değerlendirilebilir,
   gözlemlenmektedir, fayda sağlayabilir".
 - **Terimler orijinal dilde:** SEO jargonunu Türkçeleştirme. "atıf" yerine **mention**, "makine

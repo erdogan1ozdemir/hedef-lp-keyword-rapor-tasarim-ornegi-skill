@@ -78,10 +78,17 @@ değiştir; yapıyı bozma:
   çıktısı olduğu için kabul edilebilir · kullanıcıya teyit ettir).
 
 ## Görselleştirme ve okunabilirlik
-- **Her blok çerçeve veya gölge taşır (okunabilirlik · zorunlu).** Kart, callout, insight, tablo
-  sarmalayıcı, grafik kartı, ss kartı, brief kartı · hepsinde en az `border` veya `box-shadow`
-  (tercihen ikisi). Düz/çerçevesiz blok bırakma. **Conic-arc / parantez kenar süsleme yasak**
-  (temiz border + yumuşak gölge).
+- **Her blok zeminden NET ayrışır (zorunlu).** İki yoldan biri: ya kart/blok zemini sayfa zemininden
+  farklı olsun, ya da her blok **çerçeve + belirgin gölge** taşısın (tercihen ikisi). Kart, callout,
+  insight, tablo sarmalayıcı, grafik kartı, ss kartı, brief kartı · hiçbiri düz/çerçevesiz kalmaz.
+- **Parantez "(" kenar YASAK · çok önemli.** Yuvarlatılmış (`border-radius`) bir karta kalın
+  **`border-left`/`border-right`** koyma · kenar köşe yarıçapını takip edip "(" parantez şekli yaratır
+  (kullanıcı bunu açıkça reddetti). Vurgu için yerine: **üst renkli bant** (`::before` ile
+  `top:0;left:0;right:0;height:4px`), **tonlu dolu panel**, **pill başlık** veya **köşe rozet** kullan
+  (bkz. bileşen menüsü: Üst Renkli Bant, Dolu Panel, Pill Başlık, Köşe İkon Rozeti). Conic-arc
+  (transparent boşluklu dönen conic) kenar da yasak.
+- **Karosel/vurgu renkleri hedef sitenin tema ve renkleriyle uyumlu olur** (tokenlar `--accent`/`--brand`
+  hedef markaya ayarlanır); blok stilleri marka temasına göre renklenir, referans paletini kopyalama.
 - Uzun "okuma" callout'larını kısa madde imlerine indir.
 - Tablolar `.table-wrap` içinde, başlık satırı koyu, satırlar alternatif zebra, gölgeli.
 - Grafik kartları (`.chart-card`) açıklayıcı alt başlık + gölge + hover glow.
@@ -92,6 +99,13 @@ değiştir; yapıyı bozma:
 `python3 -m http.server` ile servis et, Playwright ile bölümleri gez ve ekran görüntüsü al. Kontrol:
 em-dash 0, kırık görsel 0, tooltip çözülüyor, ToC glow/FAB çalışıyor, tablolar hizalı, mojibake
 (UTF-8 dışı `Ã`, `Ä±` vb.) yok. Mojibake bulursan kaynağı düzelt (genelde sed/perl UTF-8 hatası).
-- **Mobil + kısa viewport:** 390px genişlikte rapor tek sütun, FAB görünür; ~620px **yükseklikte**
-  ToC ekrana sığar ve `.toc-scroll` içinde kayar (taşma yok). İkisini de Playwright ile doğrula.
+- **Mobil YATAY TAŞMA kontrolü (zorunlu):** 375px viewport'ta Playwright ile
+  `document.documentElement.scrollWidth === clientWidth` doğrula (taşma OLMAMALI). Taşma varsa neden
+  genelde grid `1fr` track'inin min-content ile şişmesidir → `main` ve grid çocuklarına `min-width:0`,
+  `body/html`'e `overflow-x:hidden` (report-shell.css'te var). Taşan elemanı bul:
+  `[...document.querySelectorAll('*')].filter(e=>e.getBoundingClientRect().right>innerWidth+1)`.
+- **Mobil ToC bottom-sheet:** mobilde "☰ Bölümler" FAB'ı `.toc-sheet` alt-sayfasını açar (sadece
+  scroll değil); sheet tüm bölümleri listeler, linke/backdrop/ESC ile kapanır. Masaüstünde sheet gizli.
+- **Kısa viewport:** ~620px yükseklikte ToC ekrana sığar ve `.toc-scroll` içinde kayar (taşma yok).
+- Playwright ile 375px (mobil) + 1366px (masaüstü) ekran görüntüsü al; parantez/taşma/okunabilirlik doğrula.
 - **Deploy uyumu:** çıktı Vercel (statik) ve Railway (node) için hazır olmalı; bkz. `references/06-deploy.md`.
