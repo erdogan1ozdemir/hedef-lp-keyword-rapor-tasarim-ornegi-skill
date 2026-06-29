@@ -84,6 +84,22 @@ Aşağıdaki skill'ler bu işin doğal parçasıdır; mevcutsa ilgili adımda ku
 - **seo-dataforseo / Ahrefs MCP** · kelime, SERP, rakip boşluk (gap) verisi; **pagespeed/Lighthouse** · CWV ölçümü.
 Gerekli skill bağlı değilse kullanıcıya bildir; sessizce atlama.
 
+### Teslimat dili kuralı (KRİTİK · müşteriye/markaya giden TÜM çıktılar)
+Rapor, demo/tasarım örneği ve sunum müşteriye gider. Yukarıdaki skill'ler ve MCP araçları **yalnızca dahili
+çalışma araçlarıdır**; teslimata **ASLA** yansımaz. Müşteriye giden çıktılarda şu ifadeler **GEÇMEZ**:
+- Skill adları: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`,
+  `youtube-content-research`, `clone-website`, `frontend-design` ve diğer tüm skill adları.
+- Altyapı/araç terimleri: `skill`, `Claude`, `Claude Code`, `Anthropic`, `MCP`, `ToolSearch`, `agent`,
+  `subagent`, `prompt`, `namespace`.
+İstisna: veri **kaynağı** adları (Ahrefs, DataForSEO, Lighthouse, Google, CrUX) metodoloji olarak
+yazılabilir; ama bu kaynakların **nasıl** çağrıldığı (MCP/namespace/skill) yazılmaz.
+**Teslimden önce ZORUNLU son kontrol (em-dash kontrolüyle birlikte):**
+```bash
+grep -rinE "skill|claude|anthropic|mcp|toolsearch|seo-(meta|content|geo|schema|cluster)|youtube-content|subagent" cikti.html   # BOŞ olmalı
+grep -rn "—" cikti.html   # BOŞ olmalı
+```
+Sonuç boş değilse temizlenmeden teslim edilmez. Bu kural, markaya gönderimde bu ifadelerin gözden kaçmasını önler.
+
 ## Çalışma gereklilikleri (skill çalışırken)
 
 Bu skill canlı veriye, MCP araçlarına ve birkaç yerel araç/kütüphaneye bağlıdır. İlke **ön-uçuş

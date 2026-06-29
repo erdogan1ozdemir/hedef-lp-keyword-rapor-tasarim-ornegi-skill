@@ -65,8 +65,10 @@ Sıra ve içerik mevcut yapıyı izler; gereksiz bölüm atlanabilir, sayfa tipi
     (1) **Başlık + meta** (≤60 / ≤155 krk) + H1; (2) **başlık hiyerarşisi tablosu** (H1/H2/H3 · her başlık
     altında ne olacak · hedef kelime); (3) **kelime kullanım yoğunluğu tablosu** (birincil/ikincil kelime ·
     kaç kez · nerede); (4) **eklenecek tablolar** (hız-ihtiyaç eşleme, indirme süresi vb.); (5) **eklenecek/
-    cevaplanacak FAQ listesi**; (6) **özet/giriş bölümünde ne olmalı**; iç link + schema. Üreten skill'ler:
-    `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`, `youtube-content-research`.
+    cevaplanacak FAQ listesi**; (6) **özet/giriş bölümünde ne olmalı**; iç link + schema. Hedef kelimeleri
+    ÜÇ katmanda ver: **ana hacim · rakip boşluğu · uzun kuyruk (long-tail)**; başlık hiyerarşisi tablosunda
+    her başlık için long-tail/rakip kelime örnekleri ekle. (Brief üretilirken ilgili SEO skill'leri DAHİLİ
+    kullanılır; **skill/araç/Claude adları rapora YAZILMAZ** · bkz. SKILL.md "Teslimat dili kuralı".)
 14. **Geliştirme Alanları** · mevcut sayfalara eklenebilir bloklar + fırsat skoru tablosu.
 15. **Terim Sözlüğü & Kaynaklar** · `data-term` ile işaretlenen tüm terimlerin kısa tanımı + kaynak
     linkleri + footer (tek tarih/kaynak damgası).

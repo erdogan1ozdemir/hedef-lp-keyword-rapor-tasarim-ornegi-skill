@@ -66,8 +66,11 @@ alınamadı" yaz ve gerekiyorsa kullanıcıdan iste (05).
    başlık+meta (≤60/≤155 krk), **H1/H2/H3 hiyerarşisi** (her başlık altında ne olacak), **birincil/ikincil
    kelimeler ve kullanım yoğunluğu** (hangi kelime kaç kez, nerede), **eklenecek tablolar** (hız-ihtiyaç,
    indirme süresi vb.), **eklenecek/cevaplanacak FAQ listesi**, **özet/giriş içeriği**, iç link ve schema.
-   Üretim/genişletme: `seo-meta-writer`, `seo-content`, `seo-geo`, `seo-schema`, `seo-cluster`,
-   `youtube-content-research`. Rapora **"İçerik Yazım Brief'i"** bölümü olarak ekle.
+   Hedef kelimeleri ÜÇ katmanda topla: **ana hacim · rakip boşluğu (rakipte var/Turkcell'de zayıf) · uzun
+   kuyruk**; her başlık için long-tail örnekleri çıkar. Brief üretilirken `seo-meta-writer`, `seo-content`,
+   `seo-geo`, `seo-schema`, `seo-cluster`, `youtube-content-research` skill'leri **DAHİLİ** kullanılabilir;
+   ANCAK skill/araç/Claude/MCP adları teslimata (rapor/demo/sunum) **ASLA yazılmaz** (bkz. SKILL.md
+   "Teslimat dili kuralı"). Rapora yalnızca müşteriye uygun nötr dille **"İçerik Yazım Brief'i"** bölümünü ekle.
 
 ## Çıktı: veri klasörü
 Toplanan ham veriyi `<marka>-rapor-html/data/` altına JSON/MD olarak kaydet (keyword-metrics,
