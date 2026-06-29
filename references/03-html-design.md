@@ -68,6 +68,15 @@ logo SVG **inline**. Sebebi: `cleanUrls` ile `/demo` (sondaki `/` yok) açıldı
 / `app.js` linkleri kök'e (`/style.css`) çözülüp 404 olur ve sayfa **stilsiz** gelir. Inline edersen
 hiçbir host'ta bozulmaz. Klon kabuğun logosunu da inline SVG yap (CDN'e bağımlı kalma). Bkz. `06-deploy.md`.
 
+## İçerik bileşenleri (gövdede · CRO dışı)
+Tasarım örneği yalnız dönüşüm bloğu değil, **geliştirilmiş içeriği** de gösterir:
+- **SSS'leri kümele + açılır-kapanır yap.** Canlı sayfadaki tüm soruları al ama tek uzun açık liste
+  yapma; konu başlıklarına (küme) ayır ve her soruyu `<details>` akordeon (kapalı) yap + üstte hızlı
+  erişim chip'leri. Okunabilirliği artırır, soruya erişimi kolaylaştırır.
+- **Hedefte olmayan karşılaştırma tablolarını ekle** (rapordaki gap'ten): hız-ihtiyaç eşleme, indirme
+  süresi, metrik açıklama. Her satır ilgili pakete bağlanır (bilgi → dönüşüm köprüsü).
+- **Canlı içeriği alıp rapordaki öneri/aksiyonlarla geliştir** (5G/ADSL/ölçüm içeriği, eksik FAQ'lar).
+
 ## Marka uyumu
 Tasarım örneği hedef markanın renk/tipografi/logosunu kullanır (klon kabuğundan). Geliştirilen
 bileşenler de marka diline sadık kalır; CRO/UX iyileştirmesi görsel kimliği bozmadan yapılır.
